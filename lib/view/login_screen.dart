@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm/utils/routes/routes_name.dart';
+import 'package:flutter_mvvm/utils/utils.dart';
 import 'package:flutter_mvvm/view/home_screen.dart';
 
 
@@ -17,7 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: InkWell(
           onTap: (){
-            Navigator.pushNamed(context, RoutesName.home);
+          //  Navigator.pushNamed(context, RoutesName.home);
+            Utils.toastMessage('No internet connection');
           },
             child: Text('Click')),
       )
