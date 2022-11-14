@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm/utils/routes/routes_name.dart';
+import 'package:flutter_mvvm/view_model/user_view_model.dart';
+import 'package:provider/provider.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -11,14 +14,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+
+    final userPreference = Provider.of<UserViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.grey,
-      body: Column(
-        children: [
-               Center(
-                 child: Text('Center'),
-               )
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+
+                InkWell(
+                    onTap: (){
+                      userPreference.remove().then((value){
+                        Navigator.pushNamed(context, RoutesName.login);
+                      });
+                    },
+                    child: Text('Logout'))
+          ],
+        ),
       ),
     );
   }

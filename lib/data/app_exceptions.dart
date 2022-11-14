@@ -5,6 +5,7 @@ class AppException implements Exception{
 
   AppException([this._message,this._prefix]);
 
+  @override
   String toString(){
     return '$_prefix $_message';
   }
@@ -25,5 +26,5 @@ class UnauthorizedException extends AppException{
 
 class InvalidInputException extends AppException{
 
-  InvalidInputException([String? message]) : super(message,'Unauthorized request');
+  InvalidInputException([String? message]) : super(message,'Invalid request');
 }
